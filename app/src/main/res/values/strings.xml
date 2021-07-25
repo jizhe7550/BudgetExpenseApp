@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">BudgetAndExpense</string>
+    <!-- page title -->
+    <string name="transaction_list_title">Transaction List</string>
+    <string name="transaction_detail_title">Transaction Detail</string>
+    <!-- transaction item -->
+    <string name="transaction_category">Category</string>
+    <string name="transaction_date">Date</string>
+    <string name="transaction_time">Time</string>
+    <string name="transaction_value">Value</string>
+    <string name="transaction_currency">Currency</string>
+    <string name="finish">Finish</string>
+    <string name="dialog_tilte_pick_category">Pick a Category</string>
+    <string name="exception_activity_cannot_be_null">Activity cannot be null</string>
+    <string name="usd_nzd">USD/NZD</string>
+    <string name="usd_nzd_rate">USD->NZD Rate</string>
 
+    <!-- general -->
     <string name="text_error">Error</string>
     <string name="text_success">Success</string>
     <string name="text_ok">OK</string>
@@ -9,4 +24,9 @@
     <string name="are_you_sure">Are you sure?</string>
     <string name="text_yes">Yes</string>
     <string name="text_undo">Undo</string>
+    <string name="nzd">NZD</string>
+    <string name="select_a_value">select a value</string>
+    <string name="input_usd_value">input USD value</string>
+    <string name="input_nzd_value">input NZD value</string>
+    <string name="usd">USD</string>
 </resources>

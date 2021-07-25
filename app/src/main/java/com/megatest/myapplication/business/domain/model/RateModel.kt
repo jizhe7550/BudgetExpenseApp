@@ -6,6 +6,4 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class RateModel(
     val rateNZD: Double
-): Parcelable{
-
-}
+): Parcelable
