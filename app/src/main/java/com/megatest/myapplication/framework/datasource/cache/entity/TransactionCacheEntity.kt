@@ -5,7 +5,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "transactions")
 data class TransactionCacheEntity(
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
-    var date: Long = System.currentTimeMillis()
+    @PrimaryKey(autoGenerate = false)
+    val id: String,
+    val category: String,
+    val valueUSD: String,
+    val valueNZD: String,
+    val recordRate: Double,
+    val recordTimestamp: Long
 )

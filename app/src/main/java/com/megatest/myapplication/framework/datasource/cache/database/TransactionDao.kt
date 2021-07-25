@@ -14,12 +14,12 @@ interface TransactionDao {
     suspend fun insertAllTransactions(transactions: List<TransactionCacheEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTransaction(transaction:TransactionCacheEntity)
+    suspend fun insertTransaction(transaction:TransactionCacheEntity):Long
 
-    @Query("SELECT * FROM transactions ORDER BY date")
+    @Query("SELECT * FROM transactions ORDER BY recordTimestamp")
     fun getAllTransactions(): Flow<List<TransactionCacheEntity>>
 
     @Query("SELECT * FROM transactions WHERE id = :id")
-    fun getTransactionById(id: Int): Flow<TransactionCacheEntity>
+    fun getTransactionById(id: String): Flow<TransactionCacheEntity>
 
 }

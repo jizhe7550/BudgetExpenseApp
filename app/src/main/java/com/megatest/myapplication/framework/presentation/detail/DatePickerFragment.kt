@@ -13,7 +13,7 @@ import java.util.*
 @AndroidEntryPoint
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
-    private val transactionDetailViewModel: TransactionDetailViewModel by navGraphViewModels(R.id.nav_graph_detail) {
+    private val viewModel: TransactionDetailViewModel by navGraphViewModels(R.id.nav_graph_detail) {
         defaultViewModelProviderFactory
     }
 

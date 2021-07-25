@@ -3,17 +3,23 @@ package com.megatest.myapplication.framework.presentation.detail
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import com.megatest.myapplication.R
+import com.megatest.myapplication.business.domain.model.TransactionFactory
 import com.megatest.myapplication.databinding.FragmentTransactionDetailBinding
 import com.megatest.myapplication.databinding.FragmentTransactionListBinding
 import com.megatest.myapplication.framework.presentation.base.BaseFragment
+import com.megatest.myapplication.framework.presentation.detail.state.TransactionSateEvent
+import com.megatest.myapplication.framework.presentation.detail.state.TransactionSateEvent.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class TransactionDetailFragment :
     BaseFragment<TransactionDetailViewModel, FragmentTransactionDetailBinding>(R.layout.fragment_transaction_detail) {
 
-    override val viewModel: TransactionDetailViewModel by viewModels()
+    override val viewModel: TransactionDetailViewModel by navGraphViewModels(R.id.nav_graph_detail) {
+        defaultViewModelProviderFactory
+    }
 
     override fun setupChannel() {
     }
@@ -30,6 +36,11 @@ class TransactionDetailFragment :
 
     private fun setupUI() {
         binding.btnFinish.setOnClickListener {
+            viewModel.setStateEvent(
+                InsertTransactionEvent(
+                    transaction = TransactionFactory.createSingleModel()
+                )
+            )
             findNavController().navigateUp()
         }
 

@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CategoryFragment : DialogFragment(), DialogInterface.OnClickListener {
 
-    private val transactionDetailViewModel: TransactionDetailViewModel by navGraphViewModels(R.id.nav_graph_detail) {
+    private val viewModel: TransactionDetailViewModel by navGraphViewModels(R.id.nav_graph_detail) {
         defaultViewModelProviderFactory
     }
 
@@ -27,6 +27,6 @@ class CategoryFragment : DialogFragment(), DialogInterface.OnClickListener {
     }
 
     override fun onClick(dialog: DialogInterface?, which: Int) {
-
+        viewModel.setTransactionCategory()
     }
 }
