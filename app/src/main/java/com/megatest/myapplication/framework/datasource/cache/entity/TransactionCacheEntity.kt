@@ -8,8 +8,8 @@ data class TransactionCacheEntity(
     @PrimaryKey(autoGenerate = false)
     val id: String,
     val category: String,
-    val valueUSD: String,
-    val valueNZD: String,
+    val valueUSD: Double,
+    val valueNZD: Double,
     val recordRate: Double,
     val recordTimestamp: Long
 )

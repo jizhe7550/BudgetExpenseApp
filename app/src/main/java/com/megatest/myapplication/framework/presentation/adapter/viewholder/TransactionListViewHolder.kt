@@ -11,7 +11,7 @@ constructor(
 
     fun bind(transactionModel: TransactionModel) {
         mBinding.tvCategory.text = transactionModel.category
-        mBinding.tvCurrencyValue.text = transactionModel.valueUSD + "/" + transactionModel.valueNZD
+        mBinding.tvCurrencyValue.text = transactionModel.showingValueUSD + "/" + transactionModel.showingValueNZD
         mBinding.tvDate.text = transactionModel.date
         mBinding.tvTime.text = transactionModel.time
         mBinding.tvRecordRate.text = transactionModel.showingRate

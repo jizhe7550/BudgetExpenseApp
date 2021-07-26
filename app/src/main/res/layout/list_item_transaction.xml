@@ -33,7 +33,7 @@
         android:id="@+id/tv_text_record_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_text_currency"
+        android:layout_toRightOf="@+id/tv_currency_value"
         android:layout_marginLeft="@dimen/dimen_20"
         android:text="@string/usd_nzd_rate" />
 
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_text_record_rate"
-        android:layout_alignStart="@+id/tv_text_record_rate"
+        android:layout_alignEnd="@+id/tv_text_record_rate"
         android:text="" />
 
 

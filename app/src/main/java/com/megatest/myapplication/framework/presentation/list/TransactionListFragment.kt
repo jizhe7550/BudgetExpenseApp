@@ -12,6 +12,9 @@ import com.megatest.myapplication.databinding.FragmentTransactionListBinding
 import com.megatest.myapplication.framework.presentation.adapter.TransactionListAdapter
 import com.megatest.myapplication.framework.presentation.base.BaseFragment
 import com.megatest.myapplication.framework.presentation.common.TopSpacingItemDecoration
+import com.megatest.myapplication.framework.presentation.util.gone
+import com.megatest.myapplication.framework.presentation.util.visible
+import com.megatest.myapplication.util.cLogD
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,14 +33,22 @@ class TransactionListFragment :
         viewModel.viewState.observe(viewLifecycleOwner, { viewState ->
             viewState?.apply {
                 transactionList?.let { transactionList->
-                    transactionListAdapter?.submitList(transactionList)
-                    transactionListAdapter?.notifyDataSetChanged()
+                    if (transactionList.isEmpty()){
+                        binding.rvTransitionList.gone()
+                        binding.tvNoList.visible()
+                    }else{
+                        transactionListAdapter?.submitList(transactionList)
+                        transactionListAdapter?.notifyDataSetChanged()
+                        binding.rvTransitionList.visible()
+                        binding.tvNoList.gone()
+                    }
                 }
             }
         })
         viewModel.shouldDisplayProgressBar.observe(viewLifecycleOwner, {
             uiController.displayProgressBar(it)
         })
+
         viewModel.stateMessage.observe(viewLifecycleOwner, { stateMessage ->
             stateMessage?.let {
                 uiController.onResponseReceived(

@@ -12,8 +12,8 @@ object TransactionFactory{
         return TransactionModel(
             id = UUID.randomUUID().toString(),
             category = EnumCategory.MEAL.name,
-            valueUSD = "100",
-            valueNZD = "133.3",
+            valueUSD = 100.00,
+            valueNZD = 133.333,
             recordRate = 1.333,
             recordTimestamp = 1627043804640
         )
@@ -23,8 +23,8 @@ object TransactionFactory{
         return TransactionModel(
             id = UUID.randomUUID().toString(),
             category = EnumCategory.ENTERTAINMENT.name,
-            valueUSD = "200",
-            valueNZD = "288.8",
+            valueUSD = 200.00,
+            valueNZD = 288.80,
             recordRate = 1.444,
             recordTimestamp = 1627043684924
         )

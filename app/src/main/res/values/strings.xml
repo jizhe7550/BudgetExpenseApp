@@ -29,4 +29,5 @@
     <string name="input_usd_value">input USD value</string>
     <string name="input_nzd_value">input NZD value</string>
     <string name="usd">USD</string>
+    <string name="no_transactions">No transactions</string>
 </resources>

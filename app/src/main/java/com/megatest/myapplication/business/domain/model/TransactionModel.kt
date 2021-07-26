@@ -8,8 +8,10 @@ import java.util.*
 data class TransactionModel(
     val id: String,
     val category: String,
-    val valueUSD: String,
-    val valueNZD: String,
+    val valueUSD: Double,
+    val valueNZD: Double,
+    val showingValueUSD: String = valueUSD.toFix2(),
+    val showingValueNZD: String = valueNZD.toFix2(),
     val recordRate: Double,
     val showingRate: String = recordRate.toFix2(),
     val recordTimestamp: Long,
