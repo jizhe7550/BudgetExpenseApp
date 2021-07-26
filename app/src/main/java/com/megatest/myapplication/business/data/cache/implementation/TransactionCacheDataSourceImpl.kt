@@ -16,4 +16,10 @@ constructor(
     override suspend fun insertTransaction(transaction: TransactionModel): Long {
         return transactionDaoService.insertTransaction(transaction)
     }
+
+    override suspend fun getAllTransactions(): List<TransactionModel> {
+        return transactionDaoService.getAllTransactions()
+    }
+
+
 }

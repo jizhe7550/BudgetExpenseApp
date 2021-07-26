@@ -10,9 +10,7 @@ import javax.inject.Inject
  */
 class CacheMapper
 @Inject
-constructor(
-
-) : EntityMapper<TransactionCacheEntity, TransactionModel> {
+constructor() : EntityMapper<TransactionCacheEntity, TransactionModel> {
 
     fun entityListToTransactionModelList(entities: List<TransactionCacheEntity>): List<TransactionModel> {
         val list: ArrayList<TransactionModel> = ArrayList()

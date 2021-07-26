@@ -4,14 +4,14 @@ import com.megatest.myapplication.business.domain.state.StateEvent
 
 sealed class TransactionListSateEvent: StateEvent {
 
-    object GetAllTransactionsEvent: TransactionListSateEvent() {
+    object GetAllTransactionsInCacheEvent: TransactionListSateEvent() {
 
         override fun errorInfo(): String {
-            return "Error get all transactions."
+            return "Error get all transactions in cache."
         }
 
         override fun eventName(): String {
-            return "GetAllTransactionsEvent"
+            return "GetAllTransactionsInCacheEvent"
         }
 
         override fun shouldDisplayProgressBar() = true

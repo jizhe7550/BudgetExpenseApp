@@ -18,4 +18,10 @@ constructor(
     override suspend fun insertTransaction(transaction: TransactionModel): Long {
         return transactionDao.insertTransaction(cacheMapper.mapToEntity(transaction))
     }
+
+    override suspend fun getAllTransactions(): List<TransactionModel> {
+        return cacheMapper.entityListToTransactionModelList(transactionDao.getAllTransactions())
+    }
+
+
 }

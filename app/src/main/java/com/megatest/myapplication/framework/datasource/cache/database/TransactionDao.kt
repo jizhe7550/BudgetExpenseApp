@@ -17,9 +17,9 @@ interface TransactionDao {
     suspend fun insertTransaction(transaction:TransactionCacheEntity):Long
 
     @Query("SELECT * FROM transactions ORDER BY recordTimestamp")
-    fun getAllTransactions(): Flow<List<TransactionCacheEntity>>
+    fun getAllTransactions(): List<TransactionCacheEntity>
 
     @Query("SELECT * FROM transactions WHERE id = :id")
-    fun getTransactionById(id: String): Flow<TransactionCacheEntity>
+    fun getTransactionById(id: String): TransactionCacheEntity
 
 }

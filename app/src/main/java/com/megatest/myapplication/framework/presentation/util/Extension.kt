@@ -13,3 +13,7 @@ fun Long.dateStr(): String {
 fun Long.timeStr(): String {
     return timeFormat.format(this)
 }
+
+fun Double.toFix2(): String {
+    return String.format("%.2f", this)
+}
