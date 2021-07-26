@@ -11,8 +11,7 @@ class TransactionCacheDataSourceImpl
 @Inject
 constructor(
     private val transactionDaoService: ITransactionDaoService
-):ITransactionCacheDataSource
-{
+) : ITransactionCacheDataSource {
     override suspend fun insertTransaction(transaction: TransactionModel): Long {
         return transactionDaoService.insertTransaction(transaction)
     }

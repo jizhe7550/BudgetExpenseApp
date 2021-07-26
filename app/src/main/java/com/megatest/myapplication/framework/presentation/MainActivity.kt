@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), UIController {
             title(text = title)
             input(
                 waitForPositiveButton = true,
-                inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL or InputType.TYPE_CLASS_NUMBER
             ) { _, text ->
                 callback.onTextCaptured(text.toString())
             }

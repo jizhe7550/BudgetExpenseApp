@@ -6,7 +6,7 @@ class CurrencyEntity(
     val source: String,
     val success: Boolean,
     val terms: String,
-    val timestamp: Int,
+    val timestamp: Long,
 )
 
 data class Quotes(

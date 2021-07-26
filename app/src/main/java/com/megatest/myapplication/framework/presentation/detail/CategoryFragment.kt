@@ -21,12 +21,13 @@ class CategoryFragment : DialogFragment(), DialogInterface.OnClickListener {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.setTitle(getString(R.string.dialog_tilte_pick_category))
-                .setItems(EnumCategory.getCategoryNames(),this)
+                .setItems(EnumCategory.getCategoryNames(), this)
             builder.create()
         } ?: throw IllegalStateException(getString(R.string.exception_activity_cannot_be_null))
     }
 
     override fun onClick(dialog: DialogInterface?, which: Int) {
-        viewModel.setTransactionCategory()
+        val category = EnumCategory.getCategoryNames()[which]
+        viewModel.setTransactionCategory(category)
     }
 }

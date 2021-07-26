@@ -66,12 +66,12 @@
             android:text="@string/usd"
             android:textSize="@dimen/font_size_14" />
 
-        <EditText
-            android:id="@+id/et_valueUSD"
+        <TextView
+            android:id="@+id/tv_valueUSD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/input_usd_value"
-            android:inputType="numberDecimal" />
+            android:layout_marginBottom="@dimen/dimen_12"
+            android:hint="@string/input_usd_value"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -81,9 +81,11 @@
             android:textSize="@dimen/font_size_14" />
 
         <TextView
-            android:id="@+id/et_rate"
+            android:id="@+id/tv_rate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_12"
+            android:hint="@string/loading"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -92,13 +94,12 @@
             android:text="@string/nzd"
             android:textSize="@dimen/font_size_14" />
 
-        <EditText
-            android:id="@+id/et_valueNZD"
+        <TextView
+            android:id="@+id/tv_valueNZD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_12"
-            android:hint="@string/input_nzd_value"
-            android:inputType="numberDecimal" />
+            android:hint="@string/input_nzd_value" />
 
         <Button
             android:id="@+id/btn_finish"

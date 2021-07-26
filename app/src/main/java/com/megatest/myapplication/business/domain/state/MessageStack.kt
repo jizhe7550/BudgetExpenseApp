@@ -6,8 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import com.megatest.myapplication.util.cLogD
 import java.lang.IndexOutOfBoundsException
 
-const val MESSAGE_STACK_BUNDLE_KEY = "com.ytabc.android_mall.util.MessageStack"
-
 class MessageStack: ArrayList<StateMessage>() {
 
     private val _stateMessage: MutableLiveData<StateMessage?> = MutableLiveData()

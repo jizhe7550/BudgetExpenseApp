@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface ApiRetrofit {
 
     @GET("live")
-    suspend fun getCurrency(
+    suspend fun getRateFromNet(
         @Query("currencies") currency: String = "${EnumCurrency.NZD.name},${EnumCurrency.USD.name}",
         @Query("access_key") access_key: String = BuildConfig.ACCESS_KEY,
     ): CurrencyEntity

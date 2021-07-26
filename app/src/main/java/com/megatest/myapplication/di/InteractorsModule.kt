@@ -1,6 +1,7 @@
 package com.megatest.myapplication.di
 
 import com.megatest.myapplication.business.data.cache.abstraction.ITransactionCacheDataSource
+import com.megatest.myapplication.business.data.network.abstraction.ITransactionApiDataSource
 import com.megatest.myapplication.business.interactors.TransactionInteractors
 import dagger.Module
 import dagger.Provides
@@ -16,7 +17,11 @@ object InteractorsModule {
     @Provides
     fun provideTransactionInteractors(
         transactionCacheDataSource: ITransactionCacheDataSource,
+        transactionApiDataSource: ITransactionApiDataSource,
     ): TransactionInteractors {
-        return TransactionInteractors(transactionCacheDataSource)
+        return TransactionInteractors(
+            transactionCacheDataSource,
+            transactionApiDataSource
+        )
     }
 }

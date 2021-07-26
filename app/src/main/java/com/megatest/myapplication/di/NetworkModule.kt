@@ -1,6 +1,11 @@
 package com.megatest.myapplication.di
 
 import com.megatest.myapplication.BuildConfig
+import com.megatest.myapplication.business.data.network.abstraction.ITransactionApiDataSource
+import com.megatest.myapplication.business.data.network.implementation.TransactionApiDataSourceImpl
+import com.megatest.myapplication.framework.datasource.network.abstraction.ITransactionApiService
+import com.megatest.myapplication.framework.datasource.network.implementation.TransactionApiServiceImpl
+import com.megatest.myapplication.framework.datasource.network.mappers.ApiMapper
 import com.megatest.myapplication.framework.datasource.network.retrofit.ApiRetrofit
 import com.megatest.myapplication.util.Constants
 import dagger.Module
@@ -47,5 +52,22 @@ class NetworkModule {
         return retrofit
             .build()
             .create(ApiRetrofit::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTransactionApiDataSource(
+        transactionApiService: ITransactionApiService,
+    ): ITransactionApiDataSource {
+        return TransactionApiDataSourceImpl(transactionApiService)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTransactionApiService(
+        apiRetrofit: ApiRetrofit,
+        apiMapper: ApiMapper
+    ): ITransactionApiService {
+        return TransactionApiServiceImpl(apiRetrofit,apiMapper)
     }
 }
