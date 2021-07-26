@@ -5,8 +5,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.megatest.myapplication.R
 import com.megatest.myapplication.business.domain.model.TransactionFactory
-import com.megatest.myapplication.business.domain.state.DialogInputCaptureCallback
-import com.megatest.myapplication.business.domain.state.StateMessageCallback
+import com.megatest.myapplication.business.domain.state.*
+import com.megatest.myapplication.business.interactors.TransactionInteractors.Companion.PLEASE_INPUT_ALL_THE_FILL
 import com.megatest.myapplication.databinding.FragmentTransactionDetailBinding
 import com.megatest.myapplication.framework.presentation.base.BaseFragment
 import com.megatest.myapplication.framework.presentation.detail.state.TransactionStateEvent.*
@@ -74,12 +74,24 @@ class TransactionDetailFragment :
 
     private fun setupUI() {
         binding.btnFinish.setOnClickListener {
-            viewModel.setStateEvent(
-                InsertTransactionEvent(
-                    transaction = TransactionFactory.createSingleModel()
+            val canFinish = viewModel.checkFinish()
+            if (canFinish) {
+                viewModel.setInsertTransactionEvent()
+                findNavController().navigateUp()
+            } else {
+                viewModel.setStateEvent(
+                    CreateStateMessageEvent(
+                        stateMessage = StateMessage(
+                            response = Response(
+                                message = PLEASE_INPUT_ALL_THE_FILL,
+                                uiComponentType = UIComponentType.Toast,
+                                messageType = MessageType.Info
+                            )
+                        )
+                    )
                 )
-            )
-            findNavController().navigateUp()
+            }
+
         }
 
         binding.tvDate.setOnClickListener {
@@ -94,10 +106,10 @@ class TransactionDetailFragment :
             findNavController().navigate(R.id.action_transactionDetailFragment_to_categoryFragment)
         }
 
-        binding.tvValueUSD.setOnClickListener{
+        binding.tvValueUSD.setOnClickListener {
             uiController.displayInputCaptureDialog(
                 getString(R.string.input_usd_value),
-                object: DialogInputCaptureCallback {
+                object : DialogInputCaptureCallback {
                     override fun onTextCaptured(text: String) {
                         viewModel.setValueUSD(text.toDouble())
                     }
@@ -105,10 +117,10 @@ class TransactionDetailFragment :
             )
         }
 
-        binding.tvValueNZD.setOnClickListener{
+        binding.tvValueNZD.setOnClickListener {
             uiController.displayInputCaptureDialog(
                 getString(R.string.input_nzd_value),
-                object: DialogInputCaptureCallback {
+                object : DialogInputCaptureCallback {
                     override fun onTextCaptured(text: String) {
                         viewModel.setValueNZD(text.toDouble())
                     }
@@ -116,6 +128,5 @@ class TransactionDetailFragment :
             )
         }
     }
-
 
 }

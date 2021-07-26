@@ -20,6 +20,6 @@ interface TransactionDao {
     fun getAllTransactions(): List<TransactionCacheEntity>
 
     @Query("SELECT * FROM transactions WHERE id = :id")
-    fun getTransactionById(id: String): TransactionCacheEntity
+    fun searchTransactionById(id: String): TransactionCacheEntity
 
 }

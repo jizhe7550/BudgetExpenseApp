@@ -12,8 +12,7 @@ class ApiMapper
 constructor() : EntityMapper<CurrencyEntity, RateModel> {
     override fun mapFromEntity(entity: CurrencyEntity): RateModel {
         return RateModel(
-            rateNZD = entity.quotes.USDNZD,
-            timestamp = entity.timestamp
+            rateNZD = entity.quotes.USDNZD
         )
     }
 

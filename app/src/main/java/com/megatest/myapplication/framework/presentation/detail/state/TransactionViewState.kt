@@ -5,7 +5,7 @@ import com.megatest.myapplication.business.domain.model.TransactionModel
 import java.util.*
 
 data class TransactionViewState(
-    var newTransaction: TransactionModel? = null,
+    var transaction: TransactionModel? = null,
     var category: String? = null,
     var calendar: Calendar? = null,
     var rateModel: RateModel? = null,

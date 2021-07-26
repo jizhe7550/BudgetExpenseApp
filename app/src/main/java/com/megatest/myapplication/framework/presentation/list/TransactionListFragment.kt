@@ -2,6 +2,7 @@ package com.megatest.myapplication.framework.presentation.list
 
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.megatest.myapplication.framework.presentation.base.BaseFragment
 import com.megatest.myapplication.framework.presentation.common.TopSpacingItemDecoration
 import com.megatest.myapplication.framework.presentation.util.gone
 import com.megatest.myapplication.framework.presentation.util.visible
+import com.megatest.myapplication.util.cLog
 import com.megatest.myapplication.util.cLogD
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -97,12 +99,17 @@ class TransactionListFragment :
     }
 
     private fun navigateToDetailFragment() {
-        findNavController().navigate(R.id.action_transactionListFragment_to_transactionDetailFragment)
+        findNavController().navigate(R.id.action_transactionListFragment_to_transactionDetailGraph)
     }
 
     override fun onItemSelected(position: Int, item: TransactionModel) {
-
-    }
+        "onItemSelected".cLogD()
+        val transactionId = item.id
+        val direction = TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailGraph(
+            transactionId
+        )
+        findNavController().navigate(direction)
+   }
 
     override fun onDestroyView() {
         super.onDestroyView()

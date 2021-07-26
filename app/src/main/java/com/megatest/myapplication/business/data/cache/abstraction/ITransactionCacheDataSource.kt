@@ -7,4 +7,6 @@ interface ITransactionCacheDataSource {
     suspend fun insertTransaction(transaction: TransactionModel): Long
 
     suspend fun getAllTransactions(): List<TransactionModel>
+
+    suspend fun searchTransactionById(id:String):TransactionModel
 }

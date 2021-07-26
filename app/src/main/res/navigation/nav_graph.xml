@@ -10,17 +10,25 @@
         android:label="fragment_transaction_list"
         tools:layout="@layout/fragment_transaction_list">
         <action
-            android:id="@+id/action_transactionListFragment_to_transactionDetailFragment"
+            android:id="@+id/action_transactionListFragment_to_transactionDetailGraph"
             app:destination="@id/nav_graph_detail" />
     </fragment>
     <navigation
         android:id="@+id/nav_graph_detail"
         app:startDestination="@id/transactionDetailFragment">
+        <argument
+            android:name="transactionId"
+            app:argType="string"
+            android:defaultValue=""/>
         <fragment
             android:id="@+id/transactionDetailFragment"
             android:name="com.megatest.myapplication.framework.presentation.detail.TransactionDetailFragment"
             android:label="fragment_transaction_detail"
             tools:layout="@layout/fragment_transaction_detail">
+            <argument
+                android:name="transactionId"
+                app:argType="string"
+                android:defaultValue=""/>
             <action
                 android:id="@+id/action_transactionDetailFragment_to_categoryFragment"
                 app:destination="@id/categoryFragment" />

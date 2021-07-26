@@ -23,5 +23,9 @@ constructor(
         return cacheMapper.entityListToTransactionModelList(transactionDao.getAllTransactions())
     }
 
+    override suspend fun searchTransactionById(id: String): TransactionModel {
+        return cacheMapper.mapFromEntity(transactionDao.searchTransactionById(id))
+    }
+
 
 }

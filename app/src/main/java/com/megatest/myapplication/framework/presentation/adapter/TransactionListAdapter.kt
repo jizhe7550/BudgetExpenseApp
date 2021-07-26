@@ -39,7 +39,8 @@ class TransactionListAdapter(
         val mBinding: ListItemTransactionBinding =
             ListItemTransactionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TransactionListViewHolder(
-            mBinding
+            mBinding,
+            interaction
         )
     }
 
