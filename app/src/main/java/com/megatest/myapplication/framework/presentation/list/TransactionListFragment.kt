@@ -103,7 +103,6 @@ class TransactionListFragment :
     }
 
     override fun onItemSelected(position: Int, item: TransactionModel) {
-        "onItemSelected".cLogD()
         val transactionId = item.id
         val direction = TransactionListFragmentDirections.actionTransactionListFragmentToTransactionDetailGraph(
             transactionId

@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_date"
         android:layout_alignEnd="@+id/tv_date"
-        android:text="@{dataUtils.timeStr(transaction.date)}"
+        android:text=""
         android:textColor="@android:color/secondary_text_light"
         android:textSize="@dimen/font_size_14" />
 </RelativeLayout>

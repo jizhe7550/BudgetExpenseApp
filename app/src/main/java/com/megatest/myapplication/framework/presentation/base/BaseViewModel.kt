@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
+@ExperimentalCoroutinesApi
 @kotlinx.coroutines.FlowPreview
 abstract class BaseViewModel<ViewState> : ViewModel()
 {
