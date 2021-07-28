@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
+  "timestamp": 1627386784,
+  "source": "USD",
+  "quotes": {
+    "USDNZD": 1.436805,
+    "USDUSD": 1
+  }
+}

@@ -9,17 +9,21 @@ import com.megatest.myapplication.framework.presentation.list.state.TransactionL
 import com.megatest.myapplication.framework.presentation.list.state.TransactionListSateEvent.*
 import com.megatest.myapplication.framework.presentation.list.state.TransactionListViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 @HiltViewModel
 class TransactionListViewModel @Inject internal constructor(
-    private val transactionInteractors:TransactionInteractors
+    private val transactionInteractors: TransactionInteractors
 ) : BaseViewModel<TransactionListViewState>() {
 
     override fun handleNewData(data: TransactionListViewState) {
         data.let { viewState ->
-            viewState.transactionList?.let { transactionList->
+            viewState.transactionList?.let { transactionList ->
                 setTransactionListData(transactionList)
             }
         }
@@ -30,7 +34,7 @@ class TransactionListViewModel @Inject internal constructor(
 
         val job: Flow<DataState<TransactionListViewState>?> = when (stateEvent) {
             is GetAllTransactionsInCacheEvent -> {
-                transactionInteractors.getAllTransactionsInCache(stateEvent)
+                transactionInteractors.getAllTransactionsFromCache.execute(stateEvent)
             }
             else -> {
                 emitInvalidStateEvent(stateEvent)
@@ -47,7 +51,7 @@ class TransactionListViewModel @Inject internal constructor(
         setStateEvent(GetAllTransactionsInCacheEvent)
     }
 
-    private fun setTransactionListData(transactionList: ArrayList<TransactionModel>){
+    private fun setTransactionListData(transactionList: ArrayList<TransactionModel>) {
         val update = getCurrentViewStateOrNew()
         update.transactionList = transactionList
         setViewState(update)

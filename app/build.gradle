@@ -33,6 +33,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        test.resources.srcDirs += 'src/test/res'
+    }
     testOptions.unitTests {
         includeAndroidResources = true
         all {
@@ -90,8 +93,7 @@ dependencies {
     testImplementation "com.google.truth:truth:$truthVersion"
 
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.coroutinesVersion"
-    //testImplementation "junit:junit:$rootProject.junitVersion"
-    //testImplementation "io.mockk:mockk:$rootProject.mockkVersion"
+
     testImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     testImplementation "org.junit.jupiter:junit-jupiter:$rootProject.junit_jupiter_version"
     testImplementation "org.junit.jupiter:junit-jupiter-api:$rootProject.junit_jupiter_version"

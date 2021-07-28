@@ -10,12 +10,16 @@ import com.megatest.myapplication.framework.presentation.base.BaseViewModel
 import com.megatest.myapplication.framework.presentation.detail.state.TransactionStateEvent.*
 import com.megatest.myapplication.framework.presentation.detail.state.TransactionViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import java.util.*
 import javax.inject.Inject
 
 const val SAFE_ARG_TRANSACTION_ID_SAVED_STATE_KEY = "transactionId"
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 @HiltViewModel
 class TransactionDetailViewModel @Inject internal constructor(
     private val savedStateHandle: SavedStateHandle,
@@ -52,21 +56,21 @@ class TransactionDetailViewModel @Inject internal constructor(
         val job: Flow<DataState<TransactionViewState>?> = when (stateEvent) {
 
             is InsertTransactionEvent -> {
-                transactionInteractors.insertNewTransaction(
+                transactionInteractors.insertOrUpdateTransactionToCache.execute(
                     newTransaction = stateEvent.transaction,
                     stateEvent = stateEvent
                 )
             }
 
             is SearchTransactionByIdEvent -> {
-                transactionInteractors.searchTransactionById(
+                transactionInteractors.searchTransactionFromCache.execute(
                     stateEvent.transactionId,
                     stateEvent
                 )
             }
 
             is GetRateFromNetEvent -> {
-                transactionInteractors.getRateFromNet(
+                transactionInteractors.getRateFromNet.execute(
                     stateEvent = stateEvent
                 )
             }
@@ -154,7 +158,7 @@ class TransactionDetailViewModel @Inject internal constructor(
             update.rateModel = RateModel(recordRate)
             update.category = category
             update.valueUSD = valueUSD
-            update.valueNZD= valueNZD
+            update.valueNZD = valueNZD
         }
         setViewState(update)
     }

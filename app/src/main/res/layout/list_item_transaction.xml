@@ -9,40 +9,39 @@
         android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:text=""
-        android:textSize="@dimen/font_size_14" />
+        android:textSize="@dimen/font_size_20" />
 
     <TextView
         android:id="@+id/tv_text_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_category"
-        android:layout_marginLeft="@dimen/dimen_20"
-        android:text="USD/NZD" />
+        android:layout_below="@+id/tv_category"
+        android:text="@string/usd_nzd"
+        android:layout_marginRight="@dimen/dimen_20"/>
 
     <TextView
         android:id="@+id/tv_currency_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_text_currency"
-        android:layout_alignStart="@+id/tv_text_currency"
+        android:layout_toEndOf="@+id/tv_text_currency"
+        android:layout_below="@+id/tv_category"
         android:text="" />
 
     <TextView
         android:id="@+id/tv_text_record_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_currency_value"
-        android:layout_marginLeft="@dimen/dimen_20"
+        android:layout_below="@+id/tv_text_currency"
+        android:layout_marginRight="@dimen/dimen_20"
         android:text="@string/usd_nzd_rate" />
 
     <TextView
         android:id="@+id/tv_record_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_text_record_rate"
-        android:layout_alignEnd="@+id/tv_text_record_rate"
+        android:layout_below="@+id/tv_text_currency"
+        android:layout_toEndOf="@+id/tv_text_record_rate"
         android:text="" />
 
 

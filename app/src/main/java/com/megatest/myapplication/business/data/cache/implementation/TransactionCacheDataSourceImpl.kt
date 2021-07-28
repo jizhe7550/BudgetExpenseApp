@@ -20,7 +20,7 @@ constructor(
         return transactionDaoService.getAllTransactions()
     }
 
-    override suspend fun searchTransactionById(id: String): TransactionModel {
+    override suspend fun searchTransactionById(id: String): TransactionModel? {
         return transactionDaoService.searchTransactionById(id)
     }
 

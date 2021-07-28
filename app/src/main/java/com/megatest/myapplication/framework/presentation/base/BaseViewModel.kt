@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 @ExperimentalCoroutinesApi
-@kotlinx.coroutines.FlowPreview
+@FlowPreview
 abstract class BaseViewModel<ViewState> : ViewModel()
 {
     private val _viewState: MutableLiveData<ViewState> = MutableLiveData()

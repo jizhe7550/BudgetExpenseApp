@@ -18,4 +18,20 @@ data class TransactionModel(
     val date: String = recordTimestamp.dateStr(),
     val time: String = recordTimestamp.timeStr(),
 ) {
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as TransactionModel
+
+        if (id != other.id) return false
+        if (category != other.category) return false
+        if (valueUSD != other.valueUSD) return false
+        if (valueNZD != other.valueNZD) return false
+        if (recordRate != other.recordRate) return false
+        if (recordTimestamp != other.recordTimestamp) return false
+
+        return true
+    }
 }

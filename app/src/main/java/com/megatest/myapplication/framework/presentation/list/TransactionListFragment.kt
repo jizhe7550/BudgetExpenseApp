@@ -43,6 +43,7 @@ class TransactionListFragment :
                         transactionListAdapter?.notifyDataSetChanged()
                         binding.rvTransitionList.visible()
                         binding.tvNoList.gone()
+                        transactionList[0].toString().cLogD()
                     }
                 }
             }
