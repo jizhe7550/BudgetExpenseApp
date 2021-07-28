@@ -26,11 +26,8 @@ class TransactionDetailViewModel @Inject internal constructor(
     private val transactionInteractors: TransactionInteractors
 ) : BaseViewModel<TransactionViewState>() {
 
-    init {
-        setFirstStateEvent()
-    }
 
-    private fun setFirstStateEvent() {
+    fun checkAddOrUpdate() {
         val transactionId: String? =
             savedStateHandle.get<String>(SAFE_ARG_TRANSACTION_ID_SAVED_STATE_KEY)
         if (transactionId.isNullOrEmpty()) {

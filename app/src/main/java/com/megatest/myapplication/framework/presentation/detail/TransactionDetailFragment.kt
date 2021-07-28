@@ -14,7 +14,11 @@ import com.megatest.myapplication.framework.presentation.util.dateStr
 import com.megatest.myapplication.framework.presentation.util.timeStr
 import com.megatest.myapplication.framework.presentation.util.toFix2
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
+@ExperimentalCoroutinesApi
+@FlowPreview
 @AndroidEntryPoint
 class TransactionDetailFragment :
     BaseFragment<TransactionDetailViewModel, FragmentTransactionDetailBinding>(R.layout.fragment_transaction_detail) {
@@ -24,6 +28,7 @@ class TransactionDetailFragment :
     }
 
     override fun setupChannel() {
+        viewModel.setupChannel()
     }
 
     override fun subscribeObservers() {
@@ -70,6 +75,7 @@ class TransactionDetailFragment :
 
     override fun init() {
         setupUI()
+        viewModel.checkAddOrUpdate()
     }
 
     private fun setupUI() {

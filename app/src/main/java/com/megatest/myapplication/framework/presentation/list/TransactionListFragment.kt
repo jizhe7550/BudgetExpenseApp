@@ -18,7 +18,11 @@ import com.megatest.myapplication.framework.presentation.util.visible
 import com.megatest.myapplication.util.cLog
 import com.megatest.myapplication.util.cLogD
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
+@ExperimentalCoroutinesApi
+@FlowPreview
 @AndroidEntryPoint
 class TransactionListFragment :
     BaseFragment<TransactionListViewModel, FragmentTransactionListBinding>(R.layout.fragment_transaction_list),

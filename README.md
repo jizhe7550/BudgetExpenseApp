@@ -21,6 +21,7 @@ TODOs:
 Improvement:
 1. change custom coroutineScope to viewModelScope.
 2. test coverage.
+3. detail edit check (if nothing chance should be given a note.)
 
 
 
